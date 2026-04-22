@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ваучер-колесо</title>
+<title>Кабачковий рандом</title>
 
 <style>
 body{
@@ -114,7 +114,7 @@ button:disabled{
 
 <div id="signin">Sign IN</div>
 
-<h1>🎁 ВАУЧЕР-КОЛЕСО</h1>
+<h1>КАБАЧКОВИЙ РАНДОМ🎁</h1>
 <div id="tries"></div>
 
 <div class="wrap">
@@ -128,16 +128,16 @@ button:disabled{
 
 </div>
 
-<button id="btn">Крутити</button>
+<button id="btn">Крутити рулєтку</button>
 
 <div id="result"></div>
 <div id="wins"></div>
 
-<button id="claimBtn" style="display:none;">Забрати призи</button>
+<button id="claimBtn" style="display:none;">Забрати подарунки</button>
 
 <div id="modal">
   <div class="box">
-    <p>Замовлення прийнято, орієнтована доставка призів - 1 травня</p>
+    <p>Замовлення прийнято, орієнтована доставка призів: 1 травня</p>
     <button onclick="closeModal()">OK</button>
   </div>
 </div>
@@ -153,8 +153,8 @@ button:disabled{
 
 <script>
 const segments=[
-"Chicken Jokey","Кусок цегли","Чоколатерія","Коробка крабових паличок",
-"President","Капуста гімно","Смішка","Інкубатор"
+"Вовчик","Французька капуста","Чоколатерія","Коробка крабових паличок",
+"President","Шолом","Смішка","Інкубатор"
 ];
 
 const colors=[
@@ -189,7 +189,7 @@ function updateTries(){
 }
 
 function renderWins(){
-  winsDiv.innerHTML="<h3>Виграші:</h3>"+wins.map(w=>`<div>• ${w}</div>`).join("");
+  winsDiv.innerHTML="<h3>Отримані подарунки:</h3>"+wins.map(w=>`<div>• ${w}</div>`).join("");
 }
 
 function getTarget(){
@@ -225,7 +225,7 @@ function spin(){
   setTimeout(()=>{
     const prize=segments[target];
 
-    result.textContent="🎉 Випало: "+prize;
+    result.textContent="Отже, твій подарунок: "+prize;
 
     wins.push(prize);
     localStorage.setItem("wins",JSON.stringify(wins));
@@ -267,7 +267,7 @@ function checkPass(){
 
     btn.disabled=false;
     claimBtn.style.display="none";
-    result.textContent="Скинуто";
+    result.textContent="....";
 
     renderWins();
     updateTries();
